@@ -1,0 +1,92 @@
+/* X-Small devices portrait phones, less than 576px*/
+@media (max-width: 575.98px) {
+
+.submit_btn_sign{
+ margin:-18px 0px 6px 180px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 8px!important;
+    right: 1px;
+    width:0px;
+}
+
+}
+
+/* Small devices landscape phones, less than 768px*/
+@media (max-width: 767.98px) { 
+
+    .submit_btn_sign{
+    margin:-18px 0px 6px 180px; 
+
+}
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+  
+}
+
+
+
+/*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { 
+ }
+
+/*Large devices desktops, less than 1200px*/
+@media (max-width: 1199.98px) { 
+
+ }
+
+/* X-Large devices (large desktops, less than 1400px)*/
+@media (max-width: 1399.98px) { 
+
+ }
+
+
+
+
