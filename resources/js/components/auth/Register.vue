@@ -43,6 +43,13 @@
                             </div>
                             <input type="password" name="password" id="reTypePassword" class="form-control input_pass" value="" placeholder="Confirm Password" required>
                         </div>
+
+                        <div class="input-group mb-2">
+
+                            <router-link to="/">Already Have an Account</router-link>
+                           
+                        
+                        </div>
                       
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <button type="submit"  class="btn login_btn">Login</button>

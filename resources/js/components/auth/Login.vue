@@ -26,10 +26,16 @@
                                 </div>
                                 <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password" required>
                             </div>
+
+                            
+            <div class="input-group mb-2">
+            <router-link to="/register">Register</router-link>
+            <router-link to="/forgot" style="margin-left:20px">Forgot</router-link>
+           </div>
                           
-                            <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="submit"  class="btn login_btn">Login</button>
-                            </div>
+             <div class="d-flex justify-content-center mt-3 login_container">
+             <button type="submit"  class="btn login_btn">Login</button>
+          </div>
     
                         </form>
                     </div>
