@@ -4,6 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+          <!-- CSRF Token -->
+          <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
         <title>Laravel</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -127,7 +131,7 @@
                 <span><i class="fas fa-stethoscope"></i>Doctor</span>
               </a>
               <ul id="doctor" class="collapse" aria-labelledby="doctor" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/doctor/add-doctor.html">Add Doctor</a> </li>
+                <li> <router-link :to='/' >Add Doctor</router-link> </li>
                 <li> <a href="pages/doctor/doctor-list.html">Doctor List</a> </li>
               </ul>
             </li>
@@ -646,9 +650,8 @@
           
         <div id="app"></div>
 
-        <h1>Hello</h1>
+    
 
-        <router-view></router-view>
         
         </main>
 
@@ -659,18 +662,19 @@
   <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
   <script src="{{ asset('assets/js/perfect-scrollbar.js')}}"> </script>
   <script src="{{ asset('assets/js/jquery-ui.min.js')}}"> </script>
-
   <!-- Global Required Scripts End -->
   <script src="{{ asset('assets/js/d3.v3.min.js')}}"> </script>
   <script src="{{ asset('assets/js/topojson.v1.min.js')}}"> </script>
   <script src="{{ asset('assets/js/datamaps.all.min.js')}}"> </script>
-
-
   <!-- Page Specific Scripts Start -->
   <script src="{{ asset('assets/js/slick.min.js')}}"> </script>
+
   <script src="{{ asset('assets/js/moment.js')}}"> </script>
+
   <script src="{{ asset('assets/js/jquery.webticker.min.js')}}"> </script>
+
   <script src="{{ asset('assets/js/Chart.bundle.min.js')}}"> </script>
+
   <script src="{{ asset('assets/js/index-chart.js')}}"> </script>
 
   <!-- Page Specific Scripts Finish -->

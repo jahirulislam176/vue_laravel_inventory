@@ -1,11 +1,8 @@
 import Login from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
-
 // let login =require('./components/auth/Login.vue').default;
 // let register =require('./components/auth/Register.vue').default;
-
-
-const routes = [
+export const routes = [
     {
     path: '/',
     component: Login, 
