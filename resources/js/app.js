@@ -3,7 +3,12 @@ import { createApp } from 'vue'
 import *as VueRouter from 'vue-router'
 // import { createRouter, createWebHistory } from 'vue-router'
 import {routes} from './routes.js'
+
 // import the root component App from a single-file component.
+
+//import user class
+import User from './Helpers/User'
+window.user=User
 import App from './App.vue'
 
 const router = VueRouter.createRouter({

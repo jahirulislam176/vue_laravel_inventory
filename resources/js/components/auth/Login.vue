@@ -11,12 +11,12 @@
                     </div>
     
                     <div class="d-flex justify-content-center form_container">
-                        <form action="" method="POST" class="p-2" style="width: -webkit-fill-available;">
+                        <form  @submit.prevent="login"  method="POST" class="p-2" style="width: -webkit-fill-available;" enctype="multipart/form-data">
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i style="height:30px" class="fas fa-user"></i></span>
                                 </div>
-                                <input type="email" class="form-control input_user"  required   placeholder="email" >
+                                <input type="email" class="form-control input_user"  required   placeholder="email"  v-model="form.email">
                             </div>
     
     
@@ -24,7 +24,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i style="height:30px" class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password" required>
+                                <input type="password"  class="form-control input_pass"  placeholder="Password" v-model="form.password" required>
                             </div>
 
                             
@@ -48,8 +48,34 @@
 
 <script>
 
+import User from "./../../Helpers/User"
+
 export default {
-    
+
+    data(){
+        return {
+
+            form:{
+                email:null,
+                password:null
+            }
+        }
+    },
+
+    methods:{
+        login(){
+
+           axios.post('/api/auth/login/',this.form)
+
+           .then(res=> User.responseAfterLogin(res))
+
+           .catch(error=>console.log(error.response.data))
+
+        //    axios.post('/api/auth/login/',this.form)
+        //    .then(res=> console.log(res.data))
+        //    .catch(error=>console.log(error.response.data))
+        }
+    }
 }
 
 </script>
