@@ -12,37 +12,44 @@
                 </div>
 
                 <div class="d-flex justify-content-center form_container">
-                    <form action="" method="POST" class="p-2" style="width: -webkit-fill-available;">
+                    <form   @submit.prevent="signup" method="POST" class="p-2" style="width: -webkit-fill-available;">
                         <div class="input-group mb-3">
 
                             <div class="input-group-append">
                                 <span class="input-group-text"><i style="height:30px" class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control input_user" placeholder="Enter Your Full Name" >
+                            <input type="text" class="form-control input_user" placeholder="Enter Your Full Name" v-model="form.name" >
+                            
                         </div>
+                        <small class="text-danger" v-if="errors.name">{{ errors.name[0] }}</small>
 
 
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i style="height:30px" class="fas fa-user"></i></span>
                             </div>
-                            <input type="email" class="form-control input_user" id="fullname"  required   placeholder="email" >
+                            <input type="email" class="form-control input_user" id="fullname"    placeholder="email" v-model="form.email" >
                         </div>
+                        <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
 
 
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i style="height:30px" class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="password" id="password" class="form-control input_pass" value="" placeholder="Password" required>
+                            <input type="password"  id="password" class="form-control input_pass"  placeholder="Password" v-model="form.password">
                         </div>
+                        <small class="text-danger" v-if="errors.password">{{ errors.password[0] }}</small>
 
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i style="height:30px" class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="password" id="reTypePassword" class="form-control input_pass" value="" placeholder="Confirm Password" required>
+                            <input type="password"  id="reTypePassword" class="form-control input_pass"  placeholder="Confirm Password" v-model="form.confirm_password">
                         </div>
+
+                        <small class="text-danger" v-if="errors.password_confirmation">{{ errors.password_confirmation[0] }}</small>
+
 
                         <div class="input-group mb-2">
 
@@ -52,7 +59,9 @@
                         </div>
                       
                         <div class="d-flex justify-content-center mt-3 login_container">
+                            
                             <button type="submit"  class="btn login_btn">Login</button>
+
                         </div>
 
                     </form>
@@ -65,9 +74,65 @@
 
 <script>
 
+import User from "./../../Helpers/User"
+
 export default {
+
+    created(){
+
+        if(User.loggedIn()){
+          
+            this.$router.push({name:"Home"})
+        }
+
+    },
     
+    data(){
+        return {
+
+            form:{
+                name:null,
+
+                email:null,
+
+                password:null,
+
+                confirm_password:null
+
+            },
+            errors:{
+
+            }
+
+        }
+    },
+
+    methods:{
+        signup(){
+
+           axios.post('/api/auth/register/',this.form)
+
+           .then(res=>{
+
+            User.responseAfterLogin(res)
+            Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+            })
+
+            this.$router.push({ name:"Home" })
+        })
+           .catch(error=>this.errors=error.response.data.errors)
+        //    error=>console.log(error.response.data)
+       
+
+        //    axios.post('/api/auth/login/',this.form)
+        //    .then(res=> console.log(res.data))
+        //    .catch(error=>console.log(error.response.data))
+        }
+    }
 }
+
 </script>
 
 <style scopped>

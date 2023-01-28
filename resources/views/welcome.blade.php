@@ -131,7 +131,7 @@
                 <span><i class="fas fa-stethoscope"></i>Doctor</span>
               </a>
               <ul id="doctor" class="collapse" aria-labelledby="doctor" data-bs-parent="#side-nav-accordion">
-                <li> <router-link :to='/' >Add Doctor</router-link> </li>
+                <li> <router-link to='/' >Add Doctor</router-link> </li>
                 <li> <a href="pages/doctor/doctor-list.html">Doctor List</a> </li>
               </ul>
             </li>
@@ -141,6 +141,8 @@
               <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#patient" aria-expanded="false" aria-controls="patient">
                 <span><i class="fas fa-user"></i>Patient</span>
               </a>
+               
+
               <ul id="patient" class="collapse" aria-labelledby="patient" data-bs-parent="#side-nav-accordion">
                 <li> <a href="pages/patient/add-patient.html">Add Patient</a> </li>
                 <li> <a href="pages/patient/patient-list.html">Patient List</a> </li>
@@ -629,12 +631,17 @@
                     <a class="media fs-14 p-2" href="pages/prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear me-2"></i> Account Settings</span> </a>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="dropdown-menu-footer">
+                  {{-- <li class="dropdown-menu-footer">
                     <a class="media fs-14 p-2" href="pages/prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security me-2"></i> Lock</span> </a>
-                  </li>
+                  </li> --}}
+
                   <li class="dropdown-menu-footer">
-                    <a class="media fs-14 p-2" href="pages/prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down me-2"></i> Logout</span> </a>
+
+                    {{-- <a href="{{ route('/logout')}}">Logout</a> --}}
+                    <router-link  :to="/logout"> <span><i class="flaticon-shut-down me-2"></i>Logout</span> </router-link>
+
                   </li>
+                  
                 </ul>
               </li>
             </ul>
@@ -648,7 +655,11 @@
           <!-- Body Content Wrapper -->
 
           
-        <div id="app"></div>
+        <div id="app">
+
+         
+          
+        </div>
 
     
 

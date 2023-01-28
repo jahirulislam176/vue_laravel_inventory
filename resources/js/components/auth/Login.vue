@@ -16,16 +16,20 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i style="height:30px" class="fas fa-user"></i></span>
                                 </div>
-                                <input type="email" class="form-control input_user"  required   placeholder="email"  v-model="form.email">
+                                <input type="email" class="form-control input_user"     placeholder="email"  v-model="form.email">
+                                
+                               
                             </div>
+                            <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
     
     
-                            <div class="input-group mb-2">
+                 <div class="input-group mb-2">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i style="height:30px" class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password"  class="form-control input_pass"  placeholder="Password" v-model="form.password" required>
-                            </div>
+                                <input type="password"  class="form-control input_pass"  placeholder="Password" v-model="form.password">
+                </div>
+                 <small class="text-danger" v-if="errors.password">{{ errors.password[0] }}</small>
 
                             
             <div class="input-group mb-2">
@@ -52,13 +56,26 @@ import User from "./../../Helpers/User"
 
 export default {
 
+    created(){
+
+        if(User.loggedIn()){
+          
+            this.$router.push({name:"Home"})
+        }
+
+    },
+    
     data(){
         return {
 
             form:{
                 email:null,
                 password:null
+            },
+            errors:{
+
             }
+
         }
     },
 
@@ -67,9 +84,26 @@ export default {
 
            axios.post('/api/auth/login/',this.form)
 
-           .then(res=> User.responseAfterLogin(res))
+           .then(res=>{
+            User.responseAfterLogin(res)
+            Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+            })
 
-           .catch(error=>console.log(error.response.data))
+            this.$router.push({ name:"Home" })
+        
+        })
+
+           .catch(error=>this.errors=error.response.data.errors).
+        //    error=>console.log(error.response.data)
+           catch(
+            Toast.fire({
+            icon: 'warning',
+            title: 'Password or Email Not Correct'
+            })
+
+           )
 
         //    axios.post('/api/auth/login/',this.form)
         //    .then(res=> console.log(res.data))

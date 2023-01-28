@@ -26,7 +26,8 @@ class User{
         return this.hasToken()
     }
     logout(){
-        AppStorage.clear()
+        AppStorage.clear();
+        window.location="/"
     }
     name(){
         if(this.loggedIn()){
