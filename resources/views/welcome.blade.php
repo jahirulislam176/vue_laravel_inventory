@@ -56,6 +56,7 @@
         <!-- Styles -->
         
     </head>
+    
     <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
 
         
@@ -131,7 +132,7 @@
                 <span><i class="fas fa-stethoscope"></i>Doctor</span>
               </a>
               <ul id="doctor" class="collapse" aria-labelledby="doctor" data-bs-parent="#side-nav-accordion">
-                <li> <router-link to='/' >Add Doctor</router-link> </li>
+                <li> <router-link :to='/register'>Add Doctor</router-link> </li>
                 <li> <a href="pages/doctor/doctor-list.html">Doctor List</a> </li>
               </ul>
             </li>
@@ -150,78 +151,22 @@
             </li>
             <!-- /Patient -->
             <!-- Department -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#department" aria-expanded="false" aria-controls="department">
-                <span><i class="fas fa-sitemap"></i>Department</span>
-              </a>
-              <ul id="department" class="collapse" aria-labelledby="department" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/department/add-department.html">Add Department</a> </li>
-                <li> <a href="pages/department/department-list.html">Department List</a> </li>
-              </ul>
-            </li>
+         
             <!-- /Department -->
             <!-- Schedule -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#schedule" aria-expanded="false" aria-controls="schedule">
-                <span><i class="fas fa-list-alt"></i>Doctor Schedule</span>
-              </a>
-              <ul id="schedule" class="collapse" aria-labelledby="schedule" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/doctor-schedule/add-schedule.html">Add Schedule</a> </li>
-                <li> <a href="pages/doctor-schedule/schedule-list.html">Schedule List</a> </li>
-              </ul>
-            </li>
+           
             <!-- /Schedule -->
             <!-- Appointment -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#appointment" aria-expanded="false" aria-controls="appointment">
-                <span><i class="far fa-check-square"></i>Appointment</span>
-              </a>
-              <ul id="appointment" class="collapse" aria-labelledby="appointment" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/appointment/add-appointment.html">Add Appointment</a> </li>
-                <li> <a href="pages/appointment/appointment-list.html">Appointment List</a> </li>
-              </ul>
-            </li>
+            
             <!-- /Appointment -->
             <!-- Payment -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#payment" aria-expanded="false" aria-controls="payment">
-                <span><i class="fas fa-credit-card"></i>Payment</span>
-              </a>
-              <ul id="payment" class="collapse" aria-labelledby="payment" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/payment/add-payment.html">Add Payment</a> </li>
-                <li> <a href="pages/payment/payment-list.html">Payment List</a> </li>
-                <li> <a href="pages/payment/payment-invoice.html">Payment Invoice</a> </li>
-              </ul>
-            </li>
+        
             <!-- /Payment -->
             <!-- Report -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#report" aria-expanded="false" aria-controls="report">
-                <span><i class="fas fa-file-alt"></i>Report</span>
-              </a>
-              <ul id="report" class="collapse" aria-labelledby="report" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/report/patient-report.html">Patient Wise Report</a> </li>
-                <li> <a href="pages/report/doctor-report.html">Doctor Wise Report</a> </li>
-                <li> <a href="pages/report/total-report.html">Total Report</a> </li>
-              </ul>
-            </li>
+       
             <!-- /Report -->
             <!-- Human Resource -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#human-resource" aria-expanded="false" aria-controls="human-resource">
-                <span><i class="far fa-user-circle"></i>Human Resource</span>
-              </a>
-              <ul id="human-resource" class="collapse" aria-labelledby="human-resource" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/human-resource/add-employee.html">Add Employee</a> </li>
-                <li> <a href="pages/human-resource/employee-list.html">Employee List</a> </li>
-                <li> <a href="pages/human-resource/add-nurse.html">Add Nurse</a> </li>
-                <li> <a href="pages/human-resource/nurse-list.html">Nurse List</a> </li>
-                <li> <a href="pages/human-resource/add-pharmacist.html">Add Pharmacist</a> </li>
-                <li> <a href="pages/human-resource/pharmacist-list.html">Pharmacist List</a> </li>
-                <li> <a href="pages/human-resource/add-representative.html">Add Representative</a> </li>
-                <li> <a href="pages/human-resource/representative-list.html">Representative List</a> </li>
-              </ul>
-            </li>
+           
             <!-- /Human Resource -->
             <!-- Bed -->
             <li class="menu-item">
@@ -235,180 +180,46 @@
             </li>
             <!-- /Bed-->
             <!-- Notice -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#notice" aria-expanded="false" aria-controls="notice">
-                <span><i class="far fa-file-alt"></i>Notice</span>
-              </a>
-              <ul id="notice" class="collapse" aria-labelledby="notice" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/notice/add-notice.html">Add Notice</a> </li>
-                <li> <a href="pages/notice/notice-list.html">Notice List</a> </li>
-              </ul>
-            </li>
+      
             <!-- /Notice -->
-            <li class="menu-item">
-              <a href="pages/widgets.html">
-                <span><i class="material-icons fs-16">widgets</i>Widgets</span>
-              </a>
-            </li>
+           
             <!-- Basic UI Elements -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#basic-elements" aria-expanded="false" aria-controls="basic-elements">
-                <span><i class="material-icons fs-16">filter_list</i>Basic UI Elements</span>
-              </a>
-              <ul id="basic-elements" class="collapse" aria-labelledby="basic-elements" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/ui-basic/accordions.html">Accordions</a> </li>
-                <li> <a href="pages/ui-basic/alerts.html">Alerts</a> </li>
-                <li> <a href="pages/ui-basic/buttons.html">Buttons</a> </li>
-                <li> <a href="pages/ui-basic/breadcrumbs.html">Breadcrumbs</a> </li>
-                <li> <a href="pages/ui-basic/badges.html">Badges</a> </li>
-                <li> <a href="pages/ui-basic/cards.html">Cards</a> </li>
-                <li> <a href="pages/ui-basic/progress-bars.html">Progress Bars</a> </li>
-                <li> <a href="pages/ui-basic/preloaders.html">Pre-loaders</a> </li>
-                <li> <a href="pages/ui-basic/pagination.html">Pagination</a> </li>
-                <li> <a href="pages/ui-basic/tabs.html">Tabs</a> </li>
-                <li> <a href="pages/ui-basic/typography.html">Typography</a> </li>
-              </ul>
-            </li>
+      
             <!-- /Basic UI Elements -->
             <!-- Advanced UI Elements -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#advanced-elements" aria-expanded="false" aria-controls="advanced-elements">
-                <span><i class="material-icons fs-16">code</i>Advanced UI Elements</span>
-              </a>
-              <ul id="advanced-elements" class="collapse" aria-labelledby="advanced-elements" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/ui-advanced/draggables.html">Draggables</a> </li>
-                <li> <a href="pages/ui-advanced/sliders.html">Sliders</a> </li>
-                <li> <a href="pages/ui-advanced/modals.html">Modals</a> </li>
-                <li> <a href="pages/ui-advanced/rating.html">Rating</a> </li>
-                <li> <a href="pages/ui-advanced/tour.html">Tour</a> </li>
-                <li> <a href="pages/ui-advanced/cropper.html">Cropper</a> </li>
-                <li> <a href="pages/ui-advanced/range-slider.html">Range Slider</a> </li>
-              </ul>
-            </li>
+           
             <!-- /Advanced UI Elements -->
             <li class="menu-item">
-              <a href="pages/animation.html">
+              <a href="javascript:void(0)">
                 <span><i class="material-icons fs-16">format_paint</i>Animations</span>
               </a>
             </li>
             <!-- Form Elements -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <span><i class="material-icons fs-16">input</i>Form Elements</span>
-              </a>
-              <ul id="form-elements" class="collapse" aria-labelledby="form-elements" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/form/form-elements.html">Form Elements</a> </li>
-                <li> <a href="pages/form/form-layout.html">Form Layouts</a> </li>
-                <li> <a href="pages/form/form-validation.html">Form Validation</a> </li>
-                <li> <a href="pages/form/form-wizard.html">Form Wizard</a> </li>
-              </ul>
-            </li>
+        
             <!-- /Form Elements -->
             <!-- Charts -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#charts" aria-expanded="false" aria-controls="charts">
-                <span><i class="material-icons fs-16">equalizer</i>Charts</span>
-              </a>
-              <ul id="charts" class="collapse" aria-labelledby="charts" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/charts/chartjs.html">Chart JS</a> </li>
-                <li> <a href="pages/charts/morris-charts.html">Morris Chart</a> </li>
-              </ul>
-            </li>
+         
             <!-- /Charts -->
             <!-- Tables -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#tables" aria-expanded="false" aria-controls="tables">
-                <span><i class="material-icons fs-16">tune</i>Tables</span>
-              </a>
-              <ul id="tables" class="collapse" aria-labelledby="tables" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/tables/basic-tables.html">Basic Tables</a> </li>
-                <li> <a href="pages/tables/data-tables.html">Data tables</a> </li>
-              </ul>
-            </li>
+      
             <!-- /Tables -->
             <!-- Popups -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#popups" aria-expanded="false" aria-controls="popups">
-                <span><i class="material-icons fs-16">message</i>Popups</span>
-              </a>
-              <ul id="popups" class="collapse" aria-labelledby="popups" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/popups/sweet-alerts.html">Sweet Alerts</a> </li>
-                <li> <a href="pages/popups/toast.html">Toast</a> </li>
-              </ul>
-            </li>
+      
             <!-- /Popups -->
             <!-- Icons -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#icons" aria-expanded="false" aria-controls="icons">
-                <span><i class="material-icons fs-16">border_color</i>Icons</span>
-              </a>
-              <ul id="icons" class="collapse" aria-labelledby="icons" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/icons/fontawesome.html">Fontawesome</a> </li>
-                <li> <a href="pages/icons/flaticons.html">Flaticons</a> </li>
-                <li> <a href="pages/icons/materialize.html">Materialize</a> </li>
-              </ul>
-            </li>
+      
             <!-- /Icons -->
             <!-- Maps -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#maps" aria-expanded="false" aria-controls="maps">
-                <span><i class="material-icons fs-16">map</i>Maps</span>
-              </a>
-              <ul id="maps" class="collapse" aria-labelledby="maps" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/maps/google-maps.html">Google Maps</a> </li>
-                <li> <a href="pages/maps/vector-maps.html">Vector Maps</a> </li>
-              </ul>
-            </li>
+       
             <!-- /Maps -->
             <!-- Pages -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
-                <span><i class="material-icons fs-16">insert_drive_file</i>Pages</span>
-              </a>
-              <ul id="pages" class="collapse" aria-labelledby="pages" data-bs-parent="#side-nav-accordion">
-                <li class="menu-item">
-                  <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#authentication" aria-expanded="false" aria-controls="authentication">Authentication</a>
-                  <ul id="authentication" class="collapse" aria-labelledby="authentication" data-bs-parent="#pages">
-                    <li> <a href="pages/prebuilt-pages/default-login.html">Default Login</a> </li>
-                    <li> <a href="pages/prebuilt-pages/modal-login.html">Modal Login</a> </li>
-                    <li> <a href="pages/prebuilt-pages/default-register.html">Default Registration</a> </li>
-                    <li> <a href="pages/prebuilt-pages/modal-register.html">Modal Registration</a> </li>
-                    <li> <a href="pages/prebuilt-pages/lock-screen.html">Lock Screen</a> </li>
-                  </ul>
-                </li>
-                <li> <a href="pages/prebuilt-pages/coming-soon.html">Coming Soon</a> </li>
-                <li> <a href="pages/prebuilt-pages/error.html">Error Page</a> </li>
-                <li class="menu-item"> <a href="pages/prebuilt-pages/faq.html"> FAQ </a> </li>
-                <li class="menu-item"> <a href="pages/prebuilt-pages/portfolio.html"> Portfolio </a> </li>
-                <li class="menu-item"> <a href="pages/prebuilt-pages/user-profile.html"> User Profile </a> </li>
-                <li class="menu-item"> <a href="pages/prebuilt-pages/invoice.html"> Invoice </a> </li>
-              </ul>
-            </li>
+          
             <!-- /Pages -->
             <!-- Bonus Pages -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#bonus" aria-expanded="false">
-                <span><i class="material-icons fs-16">dashboard</i>Bonus Pages </span>
-              </a>
-              <ul id="bonus" class="collapse" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/dashboard/web-analytics.html"> Web Analytics </a> </li>
-                <li> <a href="pages/dashboard/social-media.html">Social Media Management</a> </li>
-                <li> <a href="pages/dashboard/project-management.html">Department Management</a> </li>
-                <li> <a href="pages/dashboard/client-management.html">Patient Management</a> </li>
-              </ul>
-            </li>
+       
             <!-- /Bonus Pages -->
             <!-- Apps -->
-            <li class="menu-item">
-              <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#apps" aria-expanded="false" aria-controls="apps">
-                <span><i class="material-icons fs-16">phone_iphone</i>Apps</span>
-              </a>
-              <ul id="apps" class="collapse" aria-labelledby="apps" data-bs-parent="#side-nav-accordion">
-                <li> <a href="pages/apps/chat.html">Chat</a> </li>
-                <li> <a href="pages/apps/email.html">Email</a> </li>
-                <li> <a href="pages/apps/to-do-list.html">To-do List</a> </li>
-              </ul>
-            </li>
+       
             <!-- /Apps -->
           </ul>
         </aside>
@@ -548,7 +359,7 @@
           </div>
         </aside>
         <!-- Main Content -->
-        <main class="body-content">
+        <main class="body-content" >
           <!-- Navigation Bar -->
           <nav class="navbar ms-navbar">
             <div class="ms-aside-toggler ms-toggler ps-0" data-bs-target="#ms-side-nav" data-bs-toggle="slideLeft">
@@ -586,36 +397,12 @@
                     <span class="badge rounded-pill badge-info">4 New</span>
                   </li>
                   <li class="dropdown-divider"></li>
-                  <li class="ms-scrollable ms-dropdown-list">
-                    <a class="media p-2" href="#">
-                      <div class="media-body">
-                        <span>12 ways to improve your crypto dashboard</span>
-                        <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 30 seconds ago</p>
-                      </div>
-                    </a>
-                    <a class="media p-2" href="#">
-                      <div class="media-body">
-                        <span>You have newly registered users</span>
-                        <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 45 minutes ago</p>
-                      </div>
-                    </a>
-                    <a class="media p-2" href="#">
-                      <div class="media-body">
-                        <span>Your account was logged in from an unauthorized IP</span>
-                        <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 2 hours ago</p>
-                      </div>
-                    </a>
-                    <a class="media p-2" href="#">
-                      <div class="media-body">
-                        <span>An application form has been submitted</span>
-                        <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 1 day ago</p>
-                      </div>
-                    </a>
-                  </li>
+
+                  
+
+
                   <li class="dropdown-divider"></li>
-                  <li class="dropdown-menu-footer text-center">
-                    <a href="#">View all Notifications</a>
-                  </li>
+                 
                 </ul>
               </li>
               <li class="ms-nav-item ms-nav-user dropdown">
@@ -637,8 +424,9 @@
 
                   <li class="dropdown-menu-footer">
 
-                    {{-- <a href="{{ route('/logout')}}">Logout</a> --}}
-                    <router-link  :to="/logout"> <span><i class="flaticon-shut-down me-2"></i>Logout</span> </router-link>
+                  
+                    <router-link  to="/logout"> <span><i class="flaticon-shut-down me-2"></i><a >Logout</a></span> </router-link>
+
 
                   </li>
                   
@@ -652,21 +440,26 @@
             </div>
           </nav>
 
+          <router-view></router-view>
+
           <!-- Body Content Wrapper -->
+
+
 
           
         <div id="app">
 
-         
           
         </div>
 
-    
-
-        
         </main>
 
+       
+          
+
   @vite('resources/js/app.js')
+
+  
 
   <script src="{{ asset('assets/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{ asset('assets/js/popper.min.js')}}"></script>
