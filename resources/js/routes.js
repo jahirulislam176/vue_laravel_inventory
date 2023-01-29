@@ -4,6 +4,9 @@ import Forgot from './components/auth/Forgot.vue'
 import Logout from "./components/auth/Logout.vue"
 import Home from './components/Home.vue'
 
+
+import Employee from './components/employee/Create.vue'
+
 // let login =require('./components/auth/Login.vue').default;
 // let register =require('./components/auth/Register.vue').default;
 export const routes = [
@@ -35,6 +38,11 @@ export const routes = [
       component:Logout,
       
       name:'Logout'
+    },
+    {
+      path:'/employee',
+      Component:Employee,
+      name:'Employee'
     }
 
   ];

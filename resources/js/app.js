@@ -1,6 +1,12 @@
 import './bootstrap';
 import { createApp } from 'vue'
 import *as VueRouter from 'vue-router'
+import Noty from 'noty';
+new Noty({
+
+  text: 'Some notification text',
+
+}).show();
 // import { createRouter, createWebHistory } from 'vue-router'
 import {routes} from './routes.js'
 
@@ -9,6 +15,10 @@ import {routes} from './routes.js'
 //import user class
 import User from './Helpers/User'
 window.user=User
+
+import Notification from './Helpers/Notification';
+window.Notification=Notification;
+
 import App from './App.vue'
 
 const router = VueRouter.createRouter({

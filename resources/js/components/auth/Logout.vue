@@ -13,12 +13,16 @@ export default{
 
     created(){
 
-        User.logout();
+        // User.logout();
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
 
         Toast.fire({
             icon: 'success',
-            title: 'Signed in successfully Log Out!'
-       })
+            title: 'Successfully Log Out!'
+       });
+       this.$router.push({ name: '/' })
 
     }
 

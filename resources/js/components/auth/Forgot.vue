@@ -17,7 +17,7 @@
             <div class="input-group-append">
             <span class="input-group-text"> <i style="height:30px" class="fas fa-key"></i></span>
             </div>
-            <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password" required>
+            <input type="password" name="password" class="form-control input_pass" v-model="form.password" placeholder="Password" required>
         </div>
 
                         <div class="input-group mb-2">
@@ -41,8 +41,30 @@
 </template>
 
 <script>
+// import { userInfo } from 'os';
+
+import User from '../../Helpers/User';
+
 
 export default {
+   
+
+    created(){
+        if(User.loggedIn()){
+            this.$router.push({name:'name'})
+
+        }
+    },
+    data(){
+        return{
+            form:{
+                password:null
+            },
+            errors:{ 
+
+            }
+        }
+    }
 
 }
 

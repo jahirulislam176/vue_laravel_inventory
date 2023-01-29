@@ -1,15 +1,23 @@
 
 <template lang="">
     <div>
-  <router-view></router-view>
+
+      <Sidebar>
+       
+
+      </Sidebar>
+     
+
+
      
     </div>
 </template>
 
 <script>
+import Sidebar from "./components/master/sidebar.vue"
 
 export default {
-    
+    components:{Sidebar},
 }
 </script>
 
