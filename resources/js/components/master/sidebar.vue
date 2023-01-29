@@ -46,7 +46,7 @@
       <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-bs-target="#ms-side-nav" data-bs-toggle="slideLeft" ></div>
       <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-bs-target="#ms-recent-activity" data-bs-toggle="slideRight"></div>
 
-    <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left" v-show="$route.path=== '/' || $route.path==='/register' || $route.path==='/forgot' ?false:true">
+    <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left" v-show="$route.path === '/' || $route.path==='/register' || $route.path==='/forgot' ? false:true ">
         <!-- Logo -->
         <div class="logo-sn ms-d-block-lg">
           <a class="ps-0 ms-0 text-center" href="index.html"> <img src="assets/img/medboard-logo-216x62.png" alt="logo"> </a>
@@ -62,7 +62,7 @@
               <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
             </a>
             <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-bs-parent="#side-nav-accordion">
-              <li> <a href="index.html">Docfindboard</a> </li>
+              <li> <router-link to="home">Docfindboard</router-link> </li>
             </ul>
           </li>
           <!-- /Dashboard -->
@@ -375,23 +375,17 @@
                   </ul>
                 </li>
               </ul>
+
               <div class="ms-toggler ms-d-block-sm pe-0 ms-nav-toggler" data-bs-toggle="slideDown" data-bs-target="#ms-nav-options">
                 <span class="ms-toggler-bar bg-white"></span>
                 <span class="ms-toggler-bar bg-white"></span>
                 <span class="ms-toggler-bar bg-white"></span>
               </div>
+              
             </nav>
-  
-         
-       
-  
-        
-  
+
             <!-- Body Content Wrapper -->
-  
-  
-  
-            
+
    
             <router-view></router-view>
  

@@ -1,6 +1,5 @@
 <template>
-
-
+      <div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -65,21 +64,5 @@
 
         
     </div>
-
+      </div>
 </template>
-
-<script>
-import User from '../../Helpers/User';
-export default{
-
-name:"Create",
-
-created(){
-        if(!User.loggedIn()){
-            this.$router.push({name:"/"})
-        }
-    },
-
-}
-
-</script>

@@ -1,4 +1,5 @@
 <template>
+
         <div class="container h-100">
             <!--Incorrect Message Start-->
             <div class="d-flex justify-content-center h-100">
@@ -20,6 +21,7 @@
                                 
                                
                             </div>
+                            
                             <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
     
     

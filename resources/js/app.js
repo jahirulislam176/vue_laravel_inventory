@@ -21,11 +21,21 @@ window.Notification=Notification;
 
 import App from './App.vue'
 
+
+
 const router = VueRouter.createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
   history: VueRouter.createWebHistory(),
   routes // short for `routes: routes`
 })
+
+
+
+
+
+
+
+
 
 // const router = createRouter({
 //   history: createWebHistory('/'),
