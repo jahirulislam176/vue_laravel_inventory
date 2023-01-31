@@ -6,7 +6,7 @@
             <div class="col-md-6 offset-md-2">
              
 
-                <h4 class="text-center">All Employees</h4>
+     <h4 class="text-center">All Employees</h4>
 
 <table class="table">
 
