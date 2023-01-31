@@ -19,31 +19,31 @@ export const routes = [
 
     {
     path: '/',
-    component: Login, 
+    component:()=> Login, 
     name:'/'
     },
 
     { 
     path: '/register',
-    component: Register,
+    component:()=> Register,
     name:'Register'
     },
 
     {
       path:'/forgot',
-      component:Forgot,
+      component:()=>Forgot,
       name:'Forgot'
     },
 
     {
       path:'/home',
-      component:Home,
+      component:()=>Home,
       name:'Home'
     },
 
     {
       path:'/logout',
-      component:Logout,
+      component:()=>Logout,
       name:'Logout'
     },
 
@@ -57,7 +57,7 @@ export const routes = [
 
     {
       path:'/test',
-      Component:Test,
+      Component:()=>Test,
       name:'Test'
     }
 
