@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,12 @@ Route::group([
     Route::post('/register', [AuthController::class,'register']);
 
 });
+
+// Route::apiResources('/employee','api\EmployeeController');
+
+
+Route::get('/employee',[EmployeeController::class,'index']);
+
+Route::post('/employee',[EmployeeController::class,'store']);
+
+

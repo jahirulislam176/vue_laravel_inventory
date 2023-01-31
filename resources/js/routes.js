@@ -11,6 +11,8 @@ import Test from './components/test.vue'
 
 import Employee from './components/employee/Insert.vue'
 
+import AllEmployee from './components/employee/AllEmployee.vue'
+
 // const Employee = () => import('./components/employee/Create.vue')
 
 // let login =require('./components/auth/Login.vue').default;
@@ -59,6 +61,13 @@ export const routes = [
       path:'/test',
       Component:()=>Test,
       name:'Test'
+    },
+    {
+      path:'/all-employee',
+
+      component:()=>AllEmployee,
+
+      name:'AllEmployee' 
     }
 
   ];

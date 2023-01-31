@@ -73,7 +73,9 @@
             </a>
             <ul id="doctor" class="collapse" aria-labelledby="doctor" data-bs-parent="#side-nav-accordion">
               <li> <router-link to='/employee'>Add Employee</router-link> </li>
-              <li> <a href="pages/doctor/doctor-list.html">Show Employee</a> </li>
+              <li>
+              <router-link to='/all-employee'>Show Employee</router-link>
+              </li>
             </ul>
           </li>
           <!-- Doctor -->
