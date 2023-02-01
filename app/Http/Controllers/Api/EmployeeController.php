@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use Validator;
+use Image;
 class EmployeeController extends Controller
 {
     /**
@@ -51,8 +52,18 @@ class EmployeeController extends Controller
             
         // ]);
 
+     
+ 
+        // if ($validator->fails()) {
+        //     return response([
+        //         'message'=>$validator->errors()->all(),
+        //     ]);
+        // }
+
+        
         $validatedData= $request->validate([
-            'full_name' => ['required', 'string', 'max:255'],
+
+            'full_name' => ['required'],
 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:employees'],
 
@@ -69,17 +80,19 @@ class EmployeeController extends Controller
             'joining_date'=>['required']
             
         ]);
- 
-        // if ($validator->fails()) {
-        //     return response([
-        //         'message'=>$validator->errors()->all(),
-        //     ]);
-        // }
 
 
+         $request->image;
+         $position=strpos($request->image,';');
+         $sub=substr($request->image,0,$position);
+         $ext=explode('/',$sub)[1];
+         $name=time().'.'.$ext;
+         $img=Image::make($request->image)->resize(240,200);
+         $upload_path='backend/employee/';
+         $image_url= $upload_path.$name;
+         $img->save($image_url);
 
-        
-        // try{
+          if($request->image){
             $input=new Employee();
             $input->full_name=$request->full_name;
             $input->email=$request->email;
@@ -87,24 +100,38 @@ class EmployeeController extends Controller
             $input->salary=$request->salary;
             $input->nid=$request->nid;
             $input->joining_date=$request->joining_date;
-            $input->image=$request->image;
-            $input->save();
+            $input->image=$image_url;
+          
             // return $this->index($request);
+           
+
+            // if($request->file('image')){
+            //     $Em_image = $request->file('image');
+            //     $destinationPath='backend/employee/';
+            //     $EmImage = date('YmdHis') . "." . $Em_image->getClientOriginalExtension();
+            //     $Em_image->move($destinationPath.$EmImage);
+            //     $input->image="$EmImage";
+            // }
+            $input->save();
             return response()->json(['message' => 'task was successful']);
-            // return response([
-            //     "message"=>$input
-            // ]);
 
-        // }catch(Exception $e){
-        //     return response([
-        //         "message"=>$e->getMessage()
+         }else{
 
-        //     ]);
 
-        // }
+            $input=new Employee();
+            $input->full_name=$request->full_name;
+            $input->email=$request->email;
+            $input->address=$request->address;
+            $input->salary=$request->salary;
+            $input->nid=$request->nid;
+            $input->joining_date=$request->joining_date;
+            $input->save();
+          
+            return response()->json(['message' => 'task was successful']);
+
+         }
         
-      
-    }
+        } 
 
     /**
      * Display the specified resource.
