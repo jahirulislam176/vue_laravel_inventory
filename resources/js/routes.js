@@ -13,6 +13,8 @@ import Employee from './components/employee/Insert.vue'
 
 import AllEmployee from './components/employee/AllEmployee.vue'
 
+import EditEmployee from './components/employee/edit-employee.vue'
+
 // const Employee = () => import('./components/employee/Create.vue')
 
 // let login =require('./components/auth/Login.vue').default;
@@ -68,6 +70,12 @@ export const routes = [
       component:()=>AllEmployee,
 
       name:'AllEmployee' 
+    },{
+
+      path:'/edit-employee/:id',
+      component:()=>EditEmployee,
+      name:'edit-employee'
+
     }
 
   ];

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use Validator;
 use Image;
+use DB;
 class EmployeeController extends Controller
 {
     /**
@@ -142,6 +143,8 @@ class EmployeeController extends Controller
     public function show($id)
     {
         //
+        $employee=DB::table('employees')->where('id',$id)->first();
+        return response()->json($employee);
     }
 
     /**
@@ -176,5 +179,18 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         //
+
+        $employee=DB::table('employees')->where('id',$id)->first();
+        $image=$employee->image;
+        if($image){
+            unlink($image);
+            DB::table('employees')->where('id',$id)->delete();
+
+        }else{
+            DB::table('employees')->where('id',$id)->delete();
+        }
+
+
+       
     }
 }

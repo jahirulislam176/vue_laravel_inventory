@@ -37,4 +37,12 @@ Route::get('/employee',[EmployeeController::class,'index']);
 
 Route::post('/employee',[EmployeeController::class,'store']);
 
+Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy']);
+
+//show employee
+
+Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
+
+
+
 

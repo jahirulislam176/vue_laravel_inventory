@@ -17,6 +17,7 @@
       <td>Salary</td>
       <td>NID</td>
       <td>Joing Date</td>
+      <td>Action</td>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,14 @@
         <td>{{ employee.salary }}</td>
         <td>{{ employee.nid }}</td>
         <td>{{ employee.joining_date }}</td>
+        <td>
+
+  <div class="btn-group">
+     <router-link :to="{name:'edit-employee',params:{id:employee.id}}" class="btn-sm btn-outline-primary">Edit</router-link>
+     <a @click="deleteEmployee(employee.id)" class="btn-sm btn-outline-primary">Delete</a>
+  </div>
+
+        </td>
       </tr>
     </tbody>
   </table>
@@ -86,6 +95,37 @@ export default{
         console.log(res.data);
      }).catch((err)=>console.error(err));
     },
+
+    methods:{
+ deleteEmployee(id){
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    axios.post('http://127.0.0.1:8000/api/employee/delete/'+id).then(()=>{
+      this.employees = this.employees.filter(employee=>{
+        return employee.id !=id
+      })
+    }).catch(()=>{
+      this.$router.push({name:'AllEmployee'})
+    })
+
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})
+
+      }
+    }
  
 
 }
