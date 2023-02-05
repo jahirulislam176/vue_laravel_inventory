@@ -44,5 +44,11 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy']);
 Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
 
 
+Route::post('/employee/update/{id}',[EmployeeController::class,'update']);
+
+
+
+
+
 
 

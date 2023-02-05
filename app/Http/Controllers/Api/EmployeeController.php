@@ -82,7 +82,6 @@ class EmployeeController extends Controller
             
         ]);
 
-
          $request->image;
          $position=strpos($request->image,';');
          $sub=substr($request->image,0,$position);
@@ -102,23 +101,9 @@ class EmployeeController extends Controller
             $input->nid=$request->nid;
             $input->joining_date=$request->joining_date;
             $input->image=$image_url;
-          
-            // return $this->index($request);
-           
-
-            // if($request->file('image')){
-            //     $Em_image = $request->file('image');
-            //     $destinationPath='backend/employee/';
-            //     $EmImage = date('YmdHis') . "." . $Em_image->getClientOriginalExtension();
-            //     $Em_image->move($destinationPath.$EmImage);
-            //     $input->image="$EmImage";
-            // }
             $input->save();
             return response()->json(['message' => 'task was successful']);
-
          }else{
-
-
             $input=new Employee();
             $input->full_name=$request->full_name;
             $input->email=$request->email;
@@ -127,9 +112,7 @@ class EmployeeController extends Controller
             $input->nid=$request->nid;
             $input->joining_date=$request->joining_date;
             $input->save();
-          
             return response()->json(['message' => 'task was successful']);
-
          }
         
         } 
@@ -168,6 +151,78 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        // $validatedData= $request->validate([
+
+        //     'full_name' => ['required'],
+
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:employees'],
+
+        //     'address' => ['required'],
+
+        //     'salary' => ['required'],
+
+        //     'address' => ['required'],
+
+        //     'nid' => ['required'],
+
+        //     'image' => ['required'],
+            
+        //     'joining_date'=>['required']
+            
+        // ]);
+
+        // $input=new Employee();
+        $input= Employee::find($id);
+
+        
+        // $input=DB::table('employees')->where('id',$id)->first();
+        $input->full_name=$request->full_name;
+        $input->email=$request->email;
+        $input->address=$request->address;
+        $input->salary=$request->salary;
+        $input->nid=$request->nid;
+        $input->joining_date=$request->joining_date;
+        $input->save();
+        return response()->json(["message"=>"Data SuccessFully Updated"]);
+        // $input->save();
+        // return response()->json(['message' => 'task was successful']);
+
+          if($request->image){
+            $request->image;
+            $position=strpos($request->image,';');
+            $sub=substr($request->image,0,$position);
+            $ext=explode('/',$sub)[1];
+            $name=time().'.'.$ext;
+            $img=Image::make($request->image)->resize(240,200);
+            $upload_path='backend/employee/';
+            $image_url= $upload_path.$name;
+            $success=$img->save($image_url);
+            // return response()->json(['message' => 'task was successful']);
+            if($success){
+                $input['image']= $image_url;
+                $img=DB::table('employees')->where('id',$id)->first();
+                $image_path=$img->image;
+                $done=unlink($image_path);
+                $input->update();
+                // $user=DB::table('employees')->where('id',$id)->update($input);
+            }else{
+                $oldimage=$request->image;
+                $input['image']=$oldimage;
+                $input->update();
+                // $user=DB::table('employees')->where('id',$id)->update($input);
+
+            }
+
+            // $input->update();
+        }
+        //  }elseif(!$request->image){
+
+        //     $input->update();
+
+
+        //  }
+       
     }
 
     /**

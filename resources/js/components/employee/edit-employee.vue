@@ -13,7 +13,7 @@
                     <div class="mb-3  p-2">
                     <label class="form-label">Name</label>
                     <input type="text" class="form-control"  placeholder="Enter Your Name" v-model="form.full_name">
-                    <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small>
+                    <!-- <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small> -->
                   </div>
                       </div>
                   
@@ -22,7 +22,7 @@
                       <div class="mb-3 p-2">
                     <label class="form-label">Email</label>
                     <input type="email" class="form-control"  placeholder="name@example.com" v-model="form.email">
-                    <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
+                    <!-- <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small> -->
                   </div>   
                       </div>
                   
@@ -30,7 +30,7 @@
                   <div class="mb-3 p-2">
                     <label class="form-label">Salary</label>
                     <input type="number" class="form-control"  placeholder="employee ID" v-model="form.salary">
-                    <small class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</small>
+                    <!-- <small class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</small> -->
                   </div>	
                   </div>
                   
@@ -39,7 +39,7 @@
                   <div class="mb-3 p-2">
                    <label class="form-label">Address</label>
                    <input type="text" class="form-control"   placeholder="phone Number" v-model="form.address">
-                   <small class="text-danger" v-if="errors.address">{{ errors.address[0] }}</small>
+                   <!-- <small class="text-danger" v-if="errors.address">{{ errors.address[0] }}</small> -->
                     </div>	
                   </div>
                   
@@ -48,7 +48,7 @@
                    <div class="mb-3 p-2">
                     <label class="form-label">Nid</label>
                     <input type="number" class="form-control"  placeholder="Nid" v-model="form.nid">
-                    <small class="text-danger" v-if="errors.nid">{{ errors.nid[0] }}</small>
+                    <!-- <small class="text-danger" v-if="errors.nid">{{ errors.nid[0] }}</small> -->
                     </div>	
                     </div>
 
@@ -56,14 +56,14 @@
                       <div class="mb-3 p-2">
                        <label class="form-label">Joining Date</label>
                        <input type="date" class="form-control"  placeholder="joining_date" v-model="form.joining_date">
-                       <small class="text-danger" v-if="errors.joining_date">{{ errors.joining_date[0] }}</small>
+                       <!-- <small class="text-danger" v-if="errors.joining_date">{{ errors.joining_date[0] }}</small> -->
                        </div>	
                        </div>
                     <div class="col-md-4">
                       <div class="mb-3 p-2">
                  
                        <input type="file" class="form-control" @change="OnFileSelected">
-                       <small class="text-danger" v-if="errors.image">{{ errors.image[0] }}</small>
+                       <!-- <small class="text-danger" v-if="errors.image">{{ errors.image[0] }}</small> -->
                        </div>	
                        </div>
                     <div class="col-md-4">
@@ -109,16 +109,17 @@ data(){
       joining_date:null,
       image:null
     },
-     errors:{
+  //    errors:{
 
-   }
+  //  }
   }
 },
 
 created(){
     let id=this.$route.params.id
-    axios.get('http://127.0.0.1:8000/api/employee/show/'+id).then(({data})=>{this.form=data}).catch(console.log('error'))
-
+    axios.get('http://127.0.0.1:8000/api/employee/show/'+id).
+    then(({data})=>{this.form=data}).
+    catch(console.log('error'))
 },
 
 methods:{
@@ -133,31 +134,28 @@ methods:{
           icon: 'error',
           title: 'upload image,less than 1mb'
           })
- 
-
     }else{
-
       console.log(file)
       let reader=new FileReader();
       reader.onload=event=>{
         this.form.image=event.target.result;
         console.log(event.target.result)
       };
-
       reader.readAsDataURL(file);
-
     }
   },
 
 
   editEmployee(){
-    axios.post("http://127.0.0.1:8000/api/employee/show/",this.form).then(res=>{
+    let id=this.$route.params.id
+    axios.post("http://127.0.0.1:8000/api/employee/update/"+id,this.form).then(res=>{
       this.form=[]
-      this.errors=[]
+      // this.errors=[]
+      this.$router.push({ name:'AllEmployee' })
     console.log(res.data);
     Toast.fire({
           icon: 'success',
-          title: 'Employee Create successfully'
+          title: 'Employee Update successfully'
           })
   }).catch(error=>this.errors=error.response.data.errors)
 
