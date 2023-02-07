@@ -70,7 +70,7 @@
                       <div class="mb-3 p-2">
                     
                       
-                       <img :src="form.image" style="height:40px; width:40px" alt="">
+                       <img :src="form.new_image" style="height:40px; width:40px" alt="">
                       
                        </div>	
                        </div>
@@ -107,7 +107,8 @@ data(){
       salary:null,
       nid:null,
       joining_date:null,
-      image:null
+      image:null,
+      new_image:''
     },
   //    errors:{
 
@@ -138,7 +139,7 @@ methods:{
       console.log(file)
       let reader=new FileReader();
       reader.onload=event=>{
-        this.form.image=event.target.result;
+        this.form.new_image=event.target.result;
         console.log(event.target.result)
       };
       reader.readAsDataURL(file);

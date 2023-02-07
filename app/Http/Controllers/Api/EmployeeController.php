@@ -41,27 +41,6 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         
-
-        // $validator = Validator::make($request->all(), [
-        //     'full_name' => ['required'],
-        //     'email' => ['required'],
-        //     'address' => ['required'],
-        //     'salary' => ['required'],
-        //     'nid' => ['required'],
-        //     'joining_date' => ['required'],
-        //     'image' => ['required'],
-            
-        // ]);
-
-     
- 
-        // if ($validator->fails()) {
-        //     return response([
-        //         'message'=>$validator->errors()->all(),
-        //     ]);
-        // }
-
-        
         $validatedData= $request->validate([
 
             'full_name' => ['required'],
@@ -174,8 +153,6 @@ class EmployeeController extends Controller
 
         // $input=new Employee();
         $input= Employee::find($id);
-
-        
         // $input=DB::table('employees')->where('id',$id)->first();
         $input->full_name=$request->full_name;
         $input->email=$request->email;
@@ -183,34 +160,38 @@ class EmployeeController extends Controller
         $input->salary=$request->salary;
         $input->nid=$request->nid;
         $input->joining_date=$request->joining_date;
-        $input->save();
-        return response()->json(["message"=>"Data SuccessFully Updated"]);
+        $new_image=$request->new_image;
+        // $input->save();
+        // return response()->json(["message"=>"Data SuccessFully Updated"]);
         // $input->save();
         // return response()->json(['message' => 'task was successful']);
 
-          if($request->image){
-            $request->image;
-            $position=strpos($request->image,';');
-            $sub=substr($request->image,0,$position);
-            $ext=explode('/',$sub)[1];
-            $name=time().'.'.$ext;
-            $img=Image::make($request->image)->resize(240,200);
-            $upload_path='backend/employee/';
-            $image_url= $upload_path.$name;
-            $success=$img->save($image_url);
+        if($new_image){
+        $position=strpos($new_image,';');
+        $sub=substr($new_image,0,$position);
+        $ext=explode('/',$sub)[1];
+        $name=time().'.'.$ext;
+        $img=Image::make($new_image)->resize(240,200);
+        $upload_path='backend/employee/';
+        $image_url= $upload_path.$name;
+        $success=$img->save($image_url);
             // return response()->json(['message' => 'task was successful']);
-            if($success){
-                $input['image']= $image_url;
-                $img=DB::table('employees')->where('id',$id)->first();
-                $image_path=$img->image;
-                $done=unlink($image_path);
-                $input->update();
-                // $user=DB::table('employees')->where('id',$id)->update($input);
-            }else{
+        if($success) {
+        $input['image']= $image_url;
+        $img=DB::table('employees')->where('id',$id)->first();
+        $image_path=$img->image;
+        unlink($image_path);
+                // $input->update();
+        $user=DB::table('employees')->where('id',$id)->update($input);
+
+        }else{
+
                 $oldimage=$request->image;
+
                 $input['image']=$oldimage;
-                $input->update();
-                // $user=DB::table('employees')->where('id',$id)->update($input);
+
+                // $input->update();
+                DB::table('employees')->where('id',$id)->update($input);
 
             }
 
