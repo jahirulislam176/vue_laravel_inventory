@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,10 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy']);
 //show employee
 
 Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
+
+//supplier module
+
+Route::post('/supplier/post',[SupplierController::class,'store']);
 
 
 

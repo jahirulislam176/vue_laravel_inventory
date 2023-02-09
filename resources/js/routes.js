@@ -15,6 +15,12 @@ import AllEmployee from './components/employee/AllEmployee.vue'
 
 import EditEmployee from './components/employee/edit-employee.vue'
 
+//supplier module
+
+import SupplierCreate from './components/supplier/Create.vue'
+import SupplierAll from './components/supplier/Index.vue'
+// import SupplierEdit from './components/supplier/Edit.vue'
+
 // const Employee = () => import('./components/employee/Create.vue')
 
 // let login =require('./components/auth/Login.vue').default;
@@ -76,6 +82,16 @@ export const routes = [
       component:()=>EditEmployee,
       name:'edit-employee'
 
+    },{
+
+      path:'/supplier',
+      component:()=> SupplierAll,
+      name:'Supplier'
+
+    },{
+      path:'/create-supplier',
+      component:()=>SupplierCreate,
+      name:'SupplierAll'
     }
 
   ];
