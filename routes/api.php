@@ -49,5 +49,11 @@ Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
 Route::post('/supplier/post',[SupplierController::class,'store']);
 
 
+Route::post('/employee/update/{id}',[EmployeeController::class,'update']);
+
+
+
+
+
 
 

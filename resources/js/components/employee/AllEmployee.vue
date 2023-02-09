@@ -15,6 +15,7 @@
       <td>Salary</td>
       <td>NID</td>
       <td>Joing Date</td>
+      <td>Image</td>
       <td>Action</td>
       </tr>
     </thead>
@@ -27,6 +28,13 @@
         <td>{{ employee.salary }}</td>
         <td>{{ employee.nid }}</td>
         <td>{{ employee.joining_date }}</td>
+        <td>
+
+       
+
+          <img :src="employee.image" />
+          
+        </td>
         <td>
 
   <div class="btn-group">
