@@ -37,8 +37,6 @@ class Notification{
     }
 
     image_validation(){
-
-        
         new Noty({
             type:'error',
             layout:'topRight',

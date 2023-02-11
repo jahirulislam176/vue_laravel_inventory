@@ -39,12 +39,11 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validateData=$request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'phone'=>'required|unique:suppliers',
-            'address'=>'required',
-            'shopname'=>'required',
-           
+            'name'=>['required'],
+            'email'=>['required'],
+            'phone'=>['required|unique:suppliers'],
+            'address'=>['required'],
+            'shopname'=>['required']
         ]);
 
         if($request->photo){
@@ -53,8 +52,11 @@ class SupplierController extends Controller
             $ext=explode('/',$sub)[1];
             $name=time().'.'.$ext;
             $img=Image::make($request->photo)->resize(240,200);
-            $upload_path='backend/supplier';
+
+            $upload_path='backend/supplier/';
+
             $image_url=$upload_path.$name;
+
             $img->save($image_url);
 
             $supplier=new Supplier();

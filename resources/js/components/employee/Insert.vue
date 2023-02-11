@@ -13,18 +13,17 @@
                       <div class="mb-3  p-2">
                       <label class="form-label">Name</label>
                       <input type="text" class="form-control"  placeholder="Enter Your Name" v-model="form.full_name">
-                      <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small>
+            <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small>
                     </div>
                         </div>
-                    
-                    
-                        <div class="col-md-4">
-                        <div class="mb-3 p-2">
+
+                      <div class="col-md-4">
+                      <div class="mb-3 p-2">
                       <label class="form-label">Email</label>
                       <input type="email" class="form-control"  placeholder="name@example.com" v-model="form.email">
                       <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
-                    </div>   
-                        </div>
+                      </div>   
+                      </div>
                     
                     <div class="col-md-4">
                     <div class="mb-3 p-2">
@@ -118,32 +117,22 @@ export default{
   methods:{
 
     OnFileSelected(event){
-
       let file=event.target.files[0];
       // this.form.image=[]
-
       if(file.size >1048770){
-
-
         Toast.fire({
             icon: 'error',
             title: 'upload image,less than 1mb'
             })
-   
-
       }else{
         console.log(file)
-
         let reader=new FileReader();
         reader.onload=event=>{
           this.form.image=event.target.result;
           console.log(event.target.result)
         };
         reader.readAsDataURL(file);
-
       }
-     
-
     },
 
 
@@ -151,8 +140,8 @@ export default{
       axios.post("http://127.0.0.1:8000/api/employee/",this.form).then(res=>{
         this.form=[]
         this.errors=[]
-      console.log(res.data);
-      Toast.fire({
+        console.log(res.data);
+        Toast.fire({
             icon: 'success',
             title: 'Employee Create successfully'
             })
