@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
@@ -17,7 +16,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+       $suppliers= Supplier::all();
+       return \response()->json( $suppliers);
+    //    return response()->json(['suppliers'=>$suppliers]);
     }
 
     /**
@@ -52,13 +53,9 @@ class SupplierController extends Controller
             $ext=explode('/',$sub)[1];
             $name=time().'.'.$ext;
             $img=Image::make($request->photo)->resize(240,200);
-
             $upload_path='backend/supplier/';
-
             $image_url=$upload_path.$name;
-
             $img->save($image_url);
-
             $supplier=new Supplier();
             $supplier->name=$request->name;
             $supplier->email=$request->email;
@@ -69,7 +66,6 @@ class SupplierController extends Controller
             $supplier->save();
 
         }else{
-
             $supplier=new Supplier();
             $supplier->name=$request->name;
             $supplier->email=$request->email;
@@ -77,7 +73,6 @@ class SupplierController extends Controller
             $supplier->address=$request->address;
             $supplier->shopname=$request->shopname;
             $supplier->save();
-
         }
 
         return response(['Data'=>'Successfully Inserted']);

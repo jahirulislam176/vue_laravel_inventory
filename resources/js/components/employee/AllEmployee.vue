@@ -78,7 +78,6 @@ export default{
       filterSearch(){
        return this.employees.filter(employee =>{
           // return employee.salary.match(this.searchTerm);
-
           return employee.full_name.toLowerCase().includes(this.searchTerm.toLowerCase())
         })
       }

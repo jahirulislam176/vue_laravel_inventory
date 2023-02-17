@@ -45,8 +45,9 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy']);
 Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
 
 //supplier module
-
+Route::get('/supplier',[SupplierController::class,'index']);
 Route::post('/supplier/post',[SupplierController::class,'store']);
+
 
 
 Route::post('/employee/update/{id}',[EmployeeController::class,'update']);
