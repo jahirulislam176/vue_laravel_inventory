@@ -82,13 +82,13 @@
           <!-- Patient -->
           <li class="menu-item">
             <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#patient" aria-expanded="false" aria-controls="patient">
-              <span><i class="fas fa-user"></i>Patient</span>
+              <span><i class="fas fa-user"></i>Supplier</span>
             </a>
              
 
             <ul id="patient" class="collapse" aria-labelledby="patient" data-bs-parent="#side-nav-accordion">
-              <li> <a href="pages/patient/add-patient.html">Add Patient</a> </li>
-              <li> <a href="pages/patient/patient-list.html">Patient List</a> </li>
+              <li> <router-link to="/create-supplier">Add Supplier</router-link> </li>
+              <li> <router-link to="/supplier">All Supplier</router-link> </li>
             </ul>
           </li>
           <!-- /Patient -->

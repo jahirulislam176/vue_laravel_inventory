@@ -83,30 +83,23 @@ export default {
 
     methods:{
         login(){
-
            axios.post('/api/auth/login/',this.form)
-
            .then(res=>{
             User.responseAfterLogin(res)
             Toast.fire({
             icon: 'success',
             title: 'Signed in successfully'
             })
-
             this.$router.push({ name:"Home" })
-        
         })
-
-           .catch(error=>this.errors=error.response.data.errors).
+        .catch(error=>this.errors=error.response.data.errors).
         //    error=>console.log(error.response.data)
            catch(
             Toast.fire({
             icon: 'warning',
             title: 'Password or Email Not Correct'
             })
-
            )
-
         //    axios.post('/api/auth/login/',this.form)
         //    .then(res=> console.log(res.data))
         //    .catch(error=>console.log(error.response.data))

@@ -42,21 +42,13 @@ class EmployeeController extends Controller
     {
         
         $validatedData= $request->validate([
-
             'full_name' => ['required'],
-
             'email' => ['required', 'string', 'email', 'max:255', 'unique:employees'],
-
             'address' => ['required'],
-
             'salary' => ['required'],
-
             'address' => ['required'],
-
             'nid' => ['required'],
-
             'image' => ['required'],
-            
             'joining_date'=>['required']
             
         ]);
@@ -72,6 +64,7 @@ class EmployeeController extends Controller
          $img->save($image_url);
 
           if($request->image){
+            
             $input=new Employee();
             $input->full_name=$request->full_name;
             $input->email=$request->email;
@@ -81,7 +74,9 @@ class EmployeeController extends Controller
             $input->joining_date=$request->joining_date;
             $input->image=$image_url;
             $input->save();
+
             return response()->json(['message' => 'task was successful']);
+
          }else{
             $input=new Employee();
             $input->full_name=$request->full_name;
