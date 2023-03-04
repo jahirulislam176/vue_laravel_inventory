@@ -99,11 +99,9 @@
     
 <script>
 
+export default{
 
-
- export default{
-
- data(){
+data(){
 
 return{
 
@@ -115,15 +113,14 @@ return{
      shopname:null,
      photo:null
  },
+
  errors:{
 
 }
+
 }
 },
-
 methods:{
-
-  
   OnFileSelected(event){
       let file=event.target.files[0];
       // this.form.image=[]
@@ -132,6 +129,7 @@ methods:{
             icon: 'error',
             title: 'upload image,less than 1mb'
             })
+            
       }else{
         console.log(file)
         let reader=new FileReader();

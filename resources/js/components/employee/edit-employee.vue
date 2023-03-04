@@ -67,11 +67,11 @@
                        </div>	
                        </div>
                     <div class="col-md-4">
+
                       <div class="mb-3 p-2">
-                    
-                      
+                        
                        <img :src="form.new_image" style="height:40px; width:40px" alt="">
-                      
+
                        </div>	
                        </div>
                   

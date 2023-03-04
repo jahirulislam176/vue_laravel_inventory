@@ -1,7 +1,9 @@
 <template>
-<div class="conatiner">
-<div class="row">
-<div class="col-md-6 offset-md-2 ">
+
+
+    <div class="conatiner">
+  <div class="row">
+    <div class="col-md-6 offset-md-2 ">
  <h4 class="text-center">All Employees</h4>
  <label for="">Search</label>
  <input type="text" v-model="searchTerm" class="form-control" style="width:200px;"><br>
@@ -45,15 +47,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
-
-
-
-
-                  
-                   
-                 
-                
+  </table>          
             </div>
         </div>
     </div>

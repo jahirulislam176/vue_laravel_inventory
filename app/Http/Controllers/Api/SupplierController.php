@@ -40,11 +40,11 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validateData=$request->validate([
-            'name'=>['required'],
-            'email'=>['required'],
-            'phone'=>['required|unique:suppliers'],
-            'address'=>['required'],
-            'shopname'=>['required']
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required|unique:suppliers',
+            'address'=>'required',
+            'shopname'=>'required'
         ]);
 
         if($request->photo){
