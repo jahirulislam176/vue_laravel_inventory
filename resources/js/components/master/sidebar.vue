@@ -72,9 +72,11 @@
               <span><i class="fas fa-stethoscope"></i>Employee</span>
             </a>
             <ul id="doctor" class="collapse" aria-labelledby="doctor" data-bs-parent="#side-nav-accordion">
+
               <li> <router-link to='/employee'>Add Employee</router-link> </li>
               <li>
               <router-link to='/all-employee'>Show Employee</router-link>
+              
               </li>
             </ul>
           </li>
@@ -89,6 +91,18 @@
             <ul id="patient" class="collapse" aria-labelledby="patient" data-bs-parent="#side-nav-accordion">
               <li> <router-link to="/create-supplier">Add Supplier</router-link> </li>
               <li> <router-link to="/supplier">All Supplier</router-link> </li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="#" class="has-chevron" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="category">
+              <span><i class="fas fa-user"></i>Category</span>
+            </a>
+             
+            <ul id="category" class="collapse" aria-labelledby="category" data-bs-parent="#side-nav-accordion">
+              <li> <router-link to="/category">Add Category</router-link> </li>
+              <li> <router-link to="/all-category">All Category</router-link> </li>
+              <!-- <li> <router-link to="/supplier">All Supplier</router-link> </li> -->
             </ul>
           </li>
           <!-- /Patient -->
@@ -395,6 +409,8 @@
           </main>
      
 </template>
+
+
 
 <script>
 

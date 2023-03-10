@@ -22,6 +22,10 @@ import EditEmployee from './components/employee/edit-employee.vue'
 
 import SupplierCreate from './components/supplier/Create.vue'
 import SupplierAll from './components/supplier/Index.vue'
+
+//category module
+import Category from './components/category/create.vue'
+import AllCategory from './components/category/AllCategory.vue'
 // import SupplierEdit from './components/supplier/Edit.vue'
 
 // const Employee = () => import('./components/employee/Create.vue')
@@ -29,7 +33,6 @@ import SupplierAll from './components/supplier/Index.vue'
 // let login =require('./components/auth/Login.vue').default;
 // let register =require('./components/auth/Register.vue').default;
 export const routes = [
-
     {
     path: '/',
     component:()=> Login, 
@@ -95,6 +98,15 @@ export const routes = [
       path:'/create-supplier',
       component:()=>SupplierCreate,
       name:'SupplierAll'
+    },{
+      path:'/category',
+      component:()=>Category,
+      name:'category'
+    },
+    {
+      path:'/all-category',
+      component:()=>AllCategory,
+      name:'AllCategory'
     }
 
   ];

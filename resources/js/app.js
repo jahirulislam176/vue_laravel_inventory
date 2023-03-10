@@ -1,5 +1,7 @@
 import './bootstrap';
+
 import { createApp } from 'vue'
+
 import *as VueRouter from 'vue-router'
 import Noty from 'noty';
 new Noty({

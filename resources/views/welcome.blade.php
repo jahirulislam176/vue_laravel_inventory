@@ -6,8 +6,7 @@
 
           <!-- CSRF Token -->
           <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
+          
         <title>Laravel</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -59,13 +58,9 @@
         
     </head>
 
-
-
-
     
     <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
 
-        
          <div id="app"> 
 
           <router-view></router-view>
@@ -80,10 +75,6 @@
         
 
 {{-- @vite('resources/js/app.js') --}}
-
-
-
-  
 
   <script src="{{ asset('assets/js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{ asset('assets/js/popper.min.js')}}"></script>

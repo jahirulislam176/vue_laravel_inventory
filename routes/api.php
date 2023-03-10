@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,22 +37,21 @@ Route::group([
 
 
 Route::get('/employee',[EmployeeController::class,'index']);
-
 Route::post('/employee',[EmployeeController::class,'store']);
-
 Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy']);
-
 //show employee
-
 Route::get('/employee/show/{id}',[EmployeeController::class,'show']);
-
 //supplier module
 Route::get('/supplier',[SupplierController::class,'index']);
 Route::post('/supplier/post',[SupplierController::class,'store']);
-
-
-
 Route::post('/employee/update/{id}',[EmployeeController::class,'update']);
+//category Controller
+Route::get('/category',[CategoryController::class,'index']);
+Route::post('/category',[CategoryController::class,'store']);
+Route::get('/category/show/{id}',[CategoryController::class,'show']);
+Route::post('/category/update/{id}',[CategoryController::class,'update']);
+Route::post('/category/delete/{id}',[CategoryController::class,'destroy']);
+
 
 
 

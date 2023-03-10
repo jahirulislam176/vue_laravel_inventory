@@ -1,14 +1,13 @@
 <template>
-
-
-    <div class="conatiner">
-  <div class="row">
-    <div class="col-md-6 offset-md-2 ">
- <h4 class="text-center">All Employees</h4>
- <label for="">Search</label>
- <input type="text" v-model="searchTerm" class="form-control" style="width:200px;"><br>
+<div class="conatiner">
+<div class="row">
+<div class="col-md-6 offset-md-2 ">
+<h4 class="text-center">All Employees</h4>
+<label for="">Search</label>
+<input type="text" v-model="searchTerm" class="form-control" style="width:200px;"><br>
   <table class="table card-body shadow-lg p-2">
     <thead>
+      
       <tr>
       <td>S:N</td>
       <td>Name</td>
@@ -20,6 +19,7 @@
       <td>Image</td>
       <td>Action</td>
       </tr>
+
     </thead>
     <tbody>
       <tr v-for="(employee,i) in filterSearch" :key="employee.id">

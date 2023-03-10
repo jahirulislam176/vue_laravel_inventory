@@ -6,24 +6,29 @@
 
                     <div class="card shadow mt-2">
                         <h3 class="text-center bg bg-primary text-white">Add Your Company Staff</h3>
+
                     <form @submit.prevent="postEmployee"  method="post" enctype="multipart/form-data" id="submit">
+
                     <div class="row">
                         
                       <div class="col-md-4">
                       <div class="mb-3  p-2">
                       <label class="form-label">Name</label>
                       <input type="text" class="form-control"  placeholder="Enter Your Name" v-model="form.full_name">
-            <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small>
+                     <small class="text-danger" v-if="errors.full_name">{{ errors.full_name[0] }}</small>
+
                     </div>
                         </div>
 
                       <div class="col-md-4">
+
                       <div class="mb-3 p-2">
                       <label class="form-label">Email</label>
                       <input type="email" class="form-control"  placeholder="name@example.com" v-model="form.email">
                       <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
-                      </div>   
-                      </div>
+                      </div>  
+
+                    </div>
                     
                     <div class="col-md-4">
                     <div class="mb-3 p-2">
@@ -43,7 +48,7 @@
                     </div>
                     
                     
-                      <div class="col-md-4">
+                    <div class="col-md-4">
                      <div class="mb-3 p-2">
                       <label class="form-label">Nid</label>
                       <input type="number" class="form-control"  placeholder="Nid" v-model="form.nid">
